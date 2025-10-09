@@ -1,0 +1,42 @@
+#!/bin/sh
+set -e
+
+cd "${0%/*}" || exit 1
+. "$WM_PROJECT_DIR/bin/tools/RunFunctions"
+
+./Allclean
+
+echo "🚀 INITIAL SETUP: Running mesh generation and configuration..."
+./of_cosim setup
+
+echo " Step 2: blockMesh..."
+runApplication blockMesh
+
+echo " Step 3: surfaceFeatures..."
+runApplication surfaceFeatures
+
+echo " Step 4: decomposePar for snappyHexMesh..."
+runApplication decomposePar
+
+echo " Step 5: snappyHexMesh -overwrite (parallel)..."
+runParallel snappyHexMesh -overwrite
+
+echo " Step 6: reconstruct..."
+runApplication reconstructPar
+rm -f log.reconstructPar
+rm -rf processor*
+
+echo " Step 7: Initial boundary conditions..."
+./of_cosim bc
+
+echo " Step 8: decompose final for solver..."
+rm -f log.decomposePar
+runApplication decomposePar
+
+if [ ! -d "processor0" ]; then
+  echo "ERROR: Processor folders not found after decomposePar!"
+  exit 1
+fi
+
+echo "✅ Initial setup completed! Ready for co-simulation."
+echo "💡 Use './run' script for subsequent co-simulation steps."

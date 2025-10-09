@@ -1,0 +1,249 @@
+{
+  "_comment": "COMPLETE CONFIGURATION GUIDE - Copy values to simu.json to use them",
+  "_note": "This file is for reference only. Edit simu.json for actual simulation parameters.",
+  
+  "guideline": {
+    "value": "AIJ",
+    "description": "Boundary condition guideline for domain sizing and BCs",
+    "options": ["AIJ", "1-Side", "AllSides"],
+    "details": {
+      "AIJ": "5H up / 15H down / 5H side / 6H top (classic wind tunnel guidelines) - uses symmetry BCs",
+      "1-Side": "Keep existing zeroGradient style with symmetric generous padding",
+      "AllSides": "Sides can switch inflow/outflow; uses inletOutlet BCs on lateral boundaries"
+    },
+    "recommendation": "Use 'AIJ' for standard wind engineering studies"
+  },
+  
+  "solo": {
+    "value": false,
+    "description": "Run simulation in solo mode (exclude zone 1 from STL filtering)",
+    "details": "When true, excludes STL files containing 'Zona_1' from the simulation"
+  },
+  
+  "state": {
+    "value": "transiente",
+    "description": "Simulation temporal state",
+    "options": ["transiente", "permanente"],
+    "details": {
+      "transiente": "Time-dependent simulation with runTime write control",
+      "permanente": "Steady-state simulation with timeStep write control"
+    }
+  },
+  
+  "interval": {
+    "value": 12,
+    "description": "Output write interval",
+    "units": "timesteps for 'permanente', seconds for 'transiente'"
+  },
+  
+  "endTime": {
+    "value": 100,
+    "description": "Simulation end time",
+    "units": "seconds"
+  },
+  
+  "deltat": {
+    "value": 1.2,
+    "description": "Time step size",
+    "units": "seconds",
+    "constraint": "Should satisfy Courant number < 1 for stability"
+  },
+  
+  "cores": {
+    "value": 12,
+    "description": "Number of CPU cores for parallel processing",
+    "recommendation": "Set based on available hardware (typically 4-32 cores)"
+  },
+  
+  "cells": {
+    "value": 50,
+    "description": "Maximum number of cells in the mesh",
+    "units": "thousands (e.g., 50 = 50,000 cells)",
+    "recommendation": "Start with 30-100 for testing, increase to 500-5000 for production"
+  },
+  
+  "refinementBox": {
+    "value": 4,
+    "description": "Refinement level for the background Cartesian mesh",
+    "range": "1-6 (higher = finer mesh)",
+    "details": "Controls the base mesh resolution before snappyHexMesh refinement"
+  },
+  
+  "eMeshLevel": {
+    "value": 4,
+    "description": "Overall mesh refinement level",
+    "range": "1-6 (higher = finer mesh)"
+  },
+  
+  "surfaceLayers": {
+    "value": 10,
+    "description": "Number of boundary layers near building surfaces",
+    "range": "3-15",
+    "details": "More layers improve boundary layer resolution but increase cell count"
+  },
+  
+  "refinementSurface1": {
+    "value": 2,
+    "description": "First level of surface refinement (coarse features)",
+    "range": "1-4"
+  },
+  
+  "refinementSurface2": {
+    "value": 3,
+    "description": "Second level of surface refinement (fine features)",
+    "range": "2-5",
+    "constraint": "Should be > refinementSurface1"
+  },
+  
+  "addLayers": {
+    "value": true,
+    "description": "Add prism layers near building surfaces",
+    "options": [true, false],
+    "details": "Essential for accurate wall modeling and boundary layer resolution"
+  },
+  
+  "paddingDomain": {
+    "value": 3,
+    "description": "Domain padding factor relative to tallest building height",
+    "units": "multiples of H_tall",
+    "details": "Domain extends this many building heights beyond the building footprint"
+  },
+  
+  "targetMinCellSize": {
+    "value": 0.3,
+    "description": "Minimum cell size in the refined regions",
+    "units": "meters",
+    "recommendation": "0.1-0.5m for building-scale simulations"
+  },
+  
+  "transitionDistances": {
+    "value": [0.5, 1.0, 2.0, 3.5, 6.0, 10.0],
+    "description": "Distance levels for gradual mesh refinement transitions",
+    "units": "meters from building surfaces",
+    "details": "Mesh refines at these distances from buildings (closer = finer mesh)"
+  },
+  
+  "nCellsBetweenLevels": {
+    "value": 5,
+    "description": "Number of buffer cells between different refinement levels",
+    "range": "3-8",
+    "details": "More cells = smoother transitions but larger cell count"
+  },
+  
+  "velo": {
+    "value": [3, 2, 1.5],
+    "description": "Wind velocity vector at reference height",
+    "units": "m/s [Ux, Uy, Uz]",
+    "details": "Ux = streamwise, Uy = spanwise, Uz = vertical components"
+  },
+  
+  "useProfiles": {
+    "value": true,
+    "description": "Use atmospheric boundary layer profiles",
+    "options": [true, false],
+    "details": {
+      "true": "Apply logarithmic/power-law velocity profile based on height",
+      "false": "Use constant velocity throughout domain"
+    },
+    "recommendation": "Use true for realistic wind simulations"
+  },
+  
+  "site_name": {
+    "value": "urban",
+    "description": "Terrain type for atmospheric boundary layer parameters",
+    "options": ["open_water", "flat_fields", "suburban", "urban", "dense_urban"],
+    "details": {
+      "open_water": "z0 ≈ 0.0002m, very smooth surface",
+      "flat_fields": "z0 ≈ 0.03m, agricultural land",
+      "suburban": "z0 ≈ 0.3m, low-density buildings",
+      "urban": "z0 ≈ 1.0m, medium-density city",
+      "dense_urban": "z0 ≈ 2.0m, high-density city center"
+    }
+  },
+  
+  "profileLaw": {
+    "value": "log",
+    "description": "Mathematical law for velocity profile",
+    "options": ["log", "power"],
+    "details": {
+      "power": "Umag(z) = Uref * ((z-d)/(zref-d))**alpha - simpler, empirical",
+      "log": "Umag(z) = (u*/kappa) * ln((z-d)/z0) - physically based, more accurate"
+    },
+    "recommendation": "Use 'log' for most applications"
+  },
+  
+  "slope": {
+    "value": 0.2,
+    "description": "Power-law exponent (α) for velocity profile",
+    "range": "0.1-0.4",
+    "details": "Higher values = more shear, steeper velocity gradient",
+    "typical_values": {
+      "open_terrain": 0.10,
+      "suburban": 0.20, 
+      "urban": 0.25,
+      "dense_urban": 0.30
+    }
+  },
+  
+  "zmax": {
+    "value": 200.0,
+    "description": "Reference height for velocity specification",
+    "units": "meters",
+    "constraint": "Must be > displacement height + 10*z0",
+    "recommendation": "Set to domain height or gradient height"
+  },
+  
+  "z0": {
+    "value": 0.5,
+    "description": "Aerodynamic roughness length",
+    "units": "meters",
+    "typical_values": {
+      "water": 0.0002,
+      "grass": 0.03,
+      "crops": 0.1,
+      "suburban": 0.3,
+      "urban": 1.0,
+      "forest": 1.5
+    }
+  },
+  
+  "T": {
+    "value": 300.0,
+    "description": "Ambient air temperature in the far field",
+    "units": "Kelvin",
+    "example": "300K = 27°C, 293K = 20°C"
+  },
+  
+  "Tw": {
+    "value": 292.0,
+    "description": "Building wall surface temperature",
+    "units": "Kelvin"
+  },
+  
+  "Tf": {
+    "value": 290.0,
+    "description": "Ground/floor surface temperature",
+    "units": "Kelvin"
+  },
+  
+  "rejectedHeat": {
+    "value": 122.0,
+    "description": "Heat rejection rate from air conditioning systems",
+    "units": "W/m²",
+    "details": "Applied as a heat flux boundary condition on building surfaces"
+  },
+  
+  "projectionDistance": {
+    "value": 0.02,
+    "description": "Distance from building walls for sensor/probe placement",
+    "units": "meters",
+    "details": "Used for post-processing and result extraction near surfaces"
+  },
+  
+  "Lchar": {
+    "value": 0.01,
+    "description": "Characteristic length scale for turbulence modeling",
+    "units": "meters",
+    "details": "Used in turbulence model length scales, typically small near walls"
+  }
+}

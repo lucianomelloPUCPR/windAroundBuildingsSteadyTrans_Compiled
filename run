@@ -1,0 +1,16 @@
+#!/bin/bash
+
+. /opt/openfoam12/etc/bashrc
+cd ${0%/*} || exit 1
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+echo "🔄 CO-SIMULATION STEP: Updating boundary conditions..."
+./of_cosim bc
+
+rm -f log.*
+
+foamListTimes -rm
+runApplication decomposePar
+runParallel $(getApplication)
+runApplication reconstructPar
+echo "✅ Co-simulation step completed!"
