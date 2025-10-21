@@ -10,7 +10,7 @@ cleanExplicitFeatures
 rm -rf 0/*
 rm -rf constant/triSurface/*.eMesh
 rm -rf system/blockMeshDict system/surfaceFeaturesDict system/snappyHexMeshDict system/fvSchemes 
-rm -rf system/decomposeParDict system/controlDict system/functions.py
+rm -rf system/decomposeParDict system/controlDict system/functions.py constant/momentumTransport
 if command -v foamListDynamicCode >/dev/null 2>&1; then
     foamListDynamicCode -case "$PWD" -rm || true 
 fi

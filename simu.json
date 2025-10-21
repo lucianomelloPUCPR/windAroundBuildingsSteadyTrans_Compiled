@@ -1,8 +1,9 @@
 {
-    "guideline": "AIJ",
+    "guideline": "AllSides",
     "solo": false,
-    "state": "transiente",
-    "interval": 12,
+    "state": "permanente",
+    "turbulenceModel":"epsilon",
+    "interval": 10,
     "endTime": 100,
     "deltat": 1.0,
     "cores": 12,

@@ -18,8 +18,8 @@ FoamFile
     {
         type            yPlus;
         functionObjectLibs ("libfieldFunctionObjects.so");
-        outputControl   runTime; 
-        outputInterval  12;
+        outputControl   timeStep; 
+        outputInterval  10;
     }
 
     sample_near_canyonHVAC-Zona_4-Ar_Condicionado_6
@@ -27,8 +27,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -50,8 +50,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -65,8 +65,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -80,8 +80,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -95,8 +95,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -110,8 +110,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -133,8 +133,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -151,8 +151,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -166,8 +166,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -184,8 +184,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -202,8 +202,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -217,8 +217,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -232,8 +232,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -247,8 +247,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -270,8 +270,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -285,8 +285,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -308,8 +308,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -323,8 +323,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -338,8 +338,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -358,8 +358,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -373,8 +373,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -388,8 +388,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -403,8 +403,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -418,8 +418,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -441,8 +441,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -456,8 +456,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -474,8 +474,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -497,8 +497,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -520,8 +520,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -535,8 +535,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -558,8 +558,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -576,8 +576,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -594,8 +594,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -609,8 +609,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -624,8 +624,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -639,8 +639,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -654,8 +654,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -669,8 +669,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -684,8 +684,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -699,8 +699,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -714,8 +714,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -732,8 +732,8 @@ FoamFile
         type            probes;
         functionObjectLibs ("libsampling.so");
         enabled         true;
-        writeControl    runTime;
-        writeInterval   12;
+        writeControl    timeStep;
+        writeInterval   10;
         fields ( U T p );
         probeLocations
         (
@@ -796,8 +796,8 @@ htc_surfaces
     Pr          0.707;
     Prt         0.9;  // <-- Reduced from 0.9 to 0.09 to multiply h by 10
     Lchar       0.05; // <-- Rduced Lchar
-    writeControl runTime;
-    writeInterval   12;
+    writeControl timeStep;
+    writeInterval   10;
 }
 
 pressure_coeff
@@ -805,8 +805,8 @@ pressure_coeff
     type            pressure;
     functionObjectLibs ("libfieldFunctionObjects.so");
     log             yes;
-    writeControl    runTime;
-    writeInterval   12;
+    writeControl    timeStep;
+    writeInterval   10;
     enabled         yes;
     calcTotal       no;
     calcCoeff       yes;

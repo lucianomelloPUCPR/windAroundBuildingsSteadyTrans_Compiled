@@ -29,6 +29,17 @@
       "permanente": "Steady-state simulation with timeStep write control"
     }
   },
+
+   "turbulenceModel": {
+    "value": "omega",
+    "description": "Selects the turbulence model to be used in the simulation.",
+    "options": ["omega", "epsilon"],
+    "details": {
+      "omega": "Uses the k-Omega SST turbulence model. Automatically generates 0/omega and updates momentumTransport to model = kOmegaSST.",
+      "epsilon": "Uses the k-Epsilon turbulence model. Automatically generates 0/epsilon and updates momentumTransport to model = kEpsilon."
+    },
+    "recommendation": "Use 'omega' for most ABL simulations; use 'epsilon' for compatibility with k-epsilon studies or legacy setups."
+  },
   
   "interval": {
     "value": 12,

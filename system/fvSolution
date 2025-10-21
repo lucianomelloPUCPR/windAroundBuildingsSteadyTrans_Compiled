@@ -33,7 +33,7 @@ solvers
         relTol          0;
     }
 
-    "(U|k|omega|h)"
+    "(U|k|omega|epsilon|h)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;
@@ -41,7 +41,7 @@ solvers
         relTol          0.1;
     }
 
-     "(U|k|omega|h)Final"
+     "(U|k|omega|epsilon|h)Final"
     {
         $U;
         relTol          0;
@@ -64,7 +64,7 @@ PIMPLE
     {
         p               1e-6;
         U               1e-5;
-        "(k|omega|h)"   1e-5;
+        "(k|omega|epsilon|h)"   1e-5;
     }
 }
 
@@ -80,7 +80,7 @@ relaxationFactors
     {
         U               0.7;
         h               0.7;
-        "(k|omega)"     0.7;
+        "(k|omega|epsilon)"     0.7;
     }
 }
 
