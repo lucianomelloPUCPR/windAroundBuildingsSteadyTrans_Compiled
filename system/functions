@@ -742,12 +742,12 @@ FoamFile
         );
     }
 
-    htc_surfaces
-    {
-        type        wallHeatTransferCoeff;
-        libs        ("libfieldFunctionObjects.so");
-        model       kappaEff;
-        patches     (
+htc_surfaces
+{
+    type        wallHeatTransferCoeff;
+    libs        ("libfieldFunctionObjects.so");
+    model       kappaEff;
+    patches     (
 						"canyonHVAC-Zona_4-Ar_Condicionado_6"
 						"canyonHVAC-Zona_9-cobertura_4"
 						"canyonHVAC-Zona_13-cobertura_7"
@@ -790,29 +790,29 @@ FoamFile
 						"canyonHVAC-Zona_2-fachada_2"
 						"canyonHVAC-Zona_11-fachada_5"
 						"canyonHVAC-Zona_5-fachada_2"
-        );
-        rho         1.225;
-        Cp          1005;
-        Pr          0.707;
-        Prt         0.9;  // <-- Reduced from 0.9 to 0.09 to multiply h by 10
-        Lchar       0.01; // <-- Rduced Lchar
-        writeControl runTime;
-        writeInterval   12;
-    }
+    );
+    rho         1.225;
+    Cp          1005;
+    Pr          0.707;
+    Prt         0.9;  // <-- Reduced from 0.9 to 0.09 to multiply h by 10
+    Lchar       0.05; // <-- Rduced Lchar
+    writeControl runTime;
+    writeInterval   12;
+}
 
-    pressure_coeff
-    {
-        type            pressure;
-        functionObjectLibs ("libfieldFunctionObjects.so");
-        log             yes;
-        writeControl    runTime;
-        writeInterval   12;
-        enabled         yes;
-        calcTotal       no;
-        calcCoeff       yes;
-        pRef            0;
-        rhoInf          1.125;
-        pInf            0;
-        UInf            (3 2 1.5);
-    }
+pressure_coeff
+{
+    type            pressure;
+    functionObjectLibs ("libfieldFunctionObjects.so");
+    log             yes;
+    writeControl    runTime;
+    writeInterval   12;
+    enabled         yes;
+    calcTotal       no;
+    calcCoeff       yes;
+    pRef            0;
+    rhoInf          1.125;
+    pInf            0;
+    UInf            (3 2 1.5);
+}
 
